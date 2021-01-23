@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Documentos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-slides *ngIf="fotos && fotos.length" autoplay="3000" loop="true" speed="500" class="slides" pager="true">
+    <ion-slide *ngFor="let item Of fotos">
+    
+      <img src="{{url+item.foto}}" imageViewer>
+
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

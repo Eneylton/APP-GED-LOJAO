@@ -1,0 +1,45 @@
+<ion-header no-border>
+  <ion-navbar transparent>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Documentos Anexos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div *ngIf="imagens.length > 0; else imagemVazia">
+
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col col-6 *ngFor="let item Of imagens; let id = index"> 
+          
+          <ion-card class="block">
+
+            <ion-icon *ngIf="nivel =='admin'"  name="md-close-circle" class="deleteIcon" (click)="deleteImagem(id)"></ion-icon>
+            <ion-icon *ngIf="nivel !='admin'"  name="md-close-circle" style="display: none;"></ion-icon>
+            <img src="{{url+item.foto}}" imageViewer >
+          </ion-card>
+        
+        
+        </ion-col>
+    
+      </ion-row>
+    </ion-grid>
+
+
+
+  </div>    
+
+  <ng-template #imagemVazia>
+   <div style="text-align: center; margin-top: 140px;">
+    <img style="width: 200px; height: 160;" src="../../assets/imgs/trnasp-img.png">
+   </div>
+   
+
+
+  </ng-template>
+
+
+</ion-content>

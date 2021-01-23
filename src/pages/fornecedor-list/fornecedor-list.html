@@ -1,0 +1,93 @@
+<ion-header no-border>
+  <ion-navbar transparent>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true">Fornecedores</ion-title>
+
+    <ion-searchbar placeholder="Pesquisar" *ngIf="isSearchbarOpened" showCancelButton="true"
+      (ionCancel)="isSearchbarOpened=false" (ionInput)="getFornecedores($event)">
+    </ion-searchbar>
+    <ion-buttons end>
+
+
+
+      <button ion-button icon-only (click)="perfil()" *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true">
+
+        <ion-icon name="md-contact"></ion-icon>
+      </button>
+
+      <button ion-button icon-only *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true">
+
+        <ion-icon name="search"></ion-icon>
+      </button>
+
+      <button ion-button icon-only (click)="adicionar()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list style="margin-top: 20px;" *ngIf="nivel == 'admin'; else acessoNegado">
+    <ion-item-sliding *ngFor="let item of fornecedores">
+
+
+      <ion-item no-lines>
+        
+        <ion-avatar item-start>
+          <img *ngIf="item.foto == null" src="../../assets/imgs/sem-foto.jpg">
+          <img *ngIf="item.foto != null" src="{{url+item.foto}}">
+        </ion-avatar>
+
+
+        <h2> <span style="padding: 10px;"> {{item.nome}} </span> </h2>
+        <p> <span style="padding: 10px;"> {{item.email}} </span> </p>
+      </ion-item>
+
+      <ion-item-options side="right">
+
+
+        <button ion-button color="dark" (click)="editar(
+          item.id,
+          item.nome,
+          item.email,
+          item.foto
+           )">
+          <ion-icon name="brush"></ion-icon>
+        </button>
+
+
+        <button ion-button color="danger" (click)="delete(item.id)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+
+      </ion-item-options>
+
+
+    </ion-item-sliding>
+  </ion-list>
+
+  <ng-template #acessoNegado>
+
+    <ion-card style="margin-top: 130px;">
+      <img src="../../assets/imgs/acesso-negado.png" alt="">
+      <button ion-button block  (click)="onClick()" style="border-radius: 20px;">
+        <ion-icon name="md-close-circle" style="font-size: 18px;"></ion-icon><label style="padding: 10px;"> Acesso Negado </label> 
+      </button>
+    </ion-card>
+
+  </ng-template>
+
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="CARREGANDO...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+
+</ion-content>

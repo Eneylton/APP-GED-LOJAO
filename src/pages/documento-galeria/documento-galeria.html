@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Galeria</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  <ion-slides *ngIf="imagens && imagens.length" autoplay="3000" loop="true" speed="500" class="slides" pager="true">
+    <ion-slide *ngFor="let item Of imagens">
+    
+      <img src="{{url+item.foto}}" imageViewer >
+
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

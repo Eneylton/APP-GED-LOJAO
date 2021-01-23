@@ -1,0 +1,62 @@
+<ion-header no-border>
+  <ion-navbar transparent>
+    <ion-title class="ion-title">
+      {{nivel}}
+    </ion-title>
+    <ion-buttons end>
+
+      <button ion-button icon-only (click)="openPerfil()">
+
+        <ion-icon name="md-cog"></ion-icon>
+       
+      </button>
+
+      <button ion-button icon-only (click)="logaout()">
+        <ion-icon name="md-power"></ion-icon>
+      </button>
+
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  
+    <ion-grid>
+      <ion-row>
+        
+        <ion-col col-12>
+          <ion-avatar>
+            <img class="avatar" *ngIf="genero != 'Masculino'" src="../../assets/imgs/fem.jpg">
+            <img class="avatar" *ngIf="genero == 'Masculino'" src="../../assets/imgs/masculino.png">
+          </ion-avatar>
+        </ion-col>
+       
+        </ion-row>
+
+      
+    </ion-grid>
+
+   
+   <ion-card>
+     <h1>{{nome}} {{sobrenome}}</h1>
+   </ion-card>
+   <ion-card class="card-md2">
+     <ion-grid fixed>
+       <ion-row>
+
+        <ion-col col-12><ion-icon slot="start" name="home"></ion-icon> 
+          <span style="font-size: small;"> {{endereco}} {{numero}} {{bairro}} {{cidade}} - {{estado}}</span>
+        </ion-col>
+
+         <ion-col col-12><ion-icon name="mail"></ion-icon> 
+          <span>{{email}}</span>
+        </ion-col>
+
+         <ion-col col-12><ion-icon slot="start" name="call"> </ion-icon><span>&nbsp; (98) 99158-1961</span>
+        </ion-col>
+
+       </ion-row>
+     </ion-grid>
+   </ion-card>
+
+</ion-content>

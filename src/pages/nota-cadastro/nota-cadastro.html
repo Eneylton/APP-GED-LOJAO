@@ -1,0 +1,41 @@
+<ion-header no-border>
+  <ion-navbar transparent>
+    <ion-title>Notas Fiscais</ion-title>
+    <ion-buttons end>
+
+      <button ion-button icon-only  (click)="cadastrar()">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content>
+  
+  <ion-list no-lines>
+
+    <ion-item>
+      <ion-input placeholder="Numero" [(ngModel)]="numero" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="font-size: 16px; margin-left: 9px; font-family:Open Sans;">Fornecedor</ion-label>
+      <ion-select [(ngModel)]="fornecedor_id" (ionChange)="listarFuncionarios()"  >
+        <ion-option *ngFor="let item of fornecedores; Index as i" [selected]="i" value="{{item.id}}">
+          <h3 style="font-size: 16px; margin-left: 9px; font-family:Open Sans !important;"> {{item.nome}} </h3></ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="font-size: 16px; margin-left: 9px; font-family:Open Sans;">Funcionários</ion-label>
+      <ion-select [(ngModel)]="funcionario_id">
+        <ion-option *ngFor="let item of funcionarios; Index as i" [selected]="i" value="{{item.id}}">
+          <h3 style="font-size: 16px; margin-left: 9px; font-family:Open Sans !important;"> {{item.nome}} </h3></ion-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

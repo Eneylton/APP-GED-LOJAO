@@ -1,0 +1,50 @@
+<ion-header no-border>
+  <ion-navbar transparent>
+    <ion-title style="text-align: center;">LOJÃO DO CARRO</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="margin-top: 25px;">
+
+  <ion-item no-lines>
+    <ion-avatar >
+      <img src="../../assets/imgs/logo-lojao.png" class="avatar" />
+    </ion-avatar>
+  </ion-item>
+
+
+
+<ion-item no-lines>
+  <div class="inputWithIcon">
+    <input type="text" placeholder="Usuário" [(ngModel)]="usuario" >
+    <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+  </div>
+
+  <div class="inputWithIcon">
+    <input type="password" placeholder="Senha" [(ngModel)]="senha">
+    <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
+  </div>
+
+  <ion-grid fixed>
+    <ion-row>
+      
+      <ion-col col-6>
+        <button full color="secondary" ion-button block (click)="formLogin()">Entrar</button>
+      </ion-col>
+      
+      <ion-col col-6>
+          
+        <button full color="light" ion-button block (click)="formCadastro()">Registre-se</button>
+
+      </ion-col>
+
+
+    </ion-row>
+  </ion-grid>
+</ion-item>
+
+<ion-item no-lines>
+  <p>Aplicativo de gerenciamento de documentos da empresa lojão do carro....</p>
+</ion-item>
+
+</ion-content>

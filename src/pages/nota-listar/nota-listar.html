@@ -1,0 +1,94 @@
+<ion-header no-border>
+  <ion-navbar transparent>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" class="cor"></ion-icon>
+    </button>
+    <ion-title *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true">Notas Fiscais</ion-title>
+
+    <ion-searchbar placeholder="Pesquisar" *ngIf="isSearchbarOpened" showCancelButton="true"
+      (ionCancel)="isSearchbarOpened=false" (ionInput)="getNotas($event)">
+    </ion-searchbar>
+    <ion-buttons end>
+
+      <button ion-button icon-only *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true">
+
+        <ion-icon class="cor2" name="search"></ion-icon>
+      </button>
+
+      <button ion-button icon-only (click)="adicionar()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list style="margin-top: 20px;" [virtualScroll]="notas">
+    <ion-item-sliding *virtualItem="let item" >
+
+      <ion-item no-lines>
+        
+        <ion-avatar item-start>
+          <img *ngIf="item.foto == null" src="../../assets/imgs/imgpdf.png">
+        
+        </ion-avatar>
+
+        <h3> <span style="padding: 10px;">{{item.numero}}</span></h3>
+        <p><span style="padding: 10px;">{{item.data_recebimento | date: 'dd/MM/yyyy'}}</span> </p>
+
+      
+        
+          <ion-icon *ngIf="nivel =='admin'" item-end style="font-size: x-large; padding: 5px;" color="dark"  name="attach" (click)="anexar(item.id)"></ion-icon>
+          <ion-icon *ngIf="nivel !='admin'" item-end style="display: none;" color="dark"  name="attach" (click)="anexar(item.id)"></ion-icon>
+
+      
+      </ion-item>
+
+      <ion-item-options side="left">
+
+        <button ion-button color="primary" (click)="foto(item.id)">
+          <ion-icon style="font-size: xx-large; padding: 5px;" name="images"></ion-icon>
+        </button>
+
+      </ion-item-options>
+
+      <ion-item-options side="right" *ngIf="nivel =='admin'">
+
+
+        <button ion-button color="danger" (click)="editar(item.id,
+                                                          item.numero,
+                                                          item.foto,
+                                                          item.fornecedor_id,
+                                                          item.funcionario_id,
+                                                          item.usuario_id
+                                                          )">
+                                                          <ion-icon name="brush"></ion-icon>
+        </button>
+
+
+        <button ion-button color="dark" (click)="delete(item.id)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+
+      </ion-item-options>
+
+
+      <ion-item-options side="right" *ngIf="nivel !='admin'">
+
+      </ion-item-options>
+
+
+    </ion-item-sliding>
+  </ion-list>
+
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="CARREGANDO...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+
+</ion-content>

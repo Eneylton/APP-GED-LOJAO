@@ -1,0 +1,56 @@
+<ion-header no-border>
+  <ion-navbar transparent>
+    <ion-title>Fornecedores</ion-title>
+    <ion-buttons end>
+
+      <button ion-button icon-only  (click)="editar()">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  
+  <ion-list>
+    <ion-item no-lines>
+  
+
+      <img style="max-width: 70%; margin-left: 50px;" src="{{url+foto}}" *ngIf="base64Image == ''"   >
+      <img style="max-width: 70%; margin-left: 50px;" src="{{base64Image}}" *ngIf="base64Image != ''"   >
+     
+
+    </ion-item>
+    <div>
+      <button ion-button full (click)="presentActionSheet()" color="danger"><ion-icon name="ios-camera-outline" style="font-size:x-large;"></ion-icon> 
+        
+        <span style="padding:10px">Foto</span>
+        
+        </button>
+    </div>
+  </ion-list>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-input placeholder="Nome" [(ngModel)]="nome" type="text"></ion-input>
+        </ion-item>
+
+      </ion-col>
+
+      <ion-col col-12>
+        <ion-item>
+          <ion-input placeholder="Email" [(ngModel)]="email" type="text"></ion-input>
+        </ion-item>
+
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,133 @@
+page-login {
+
+    ion-content{
+       
+        background-repeat: no-repeat !important;
+        background-position: top;
+        background-image: url(../../assets/imgs/12.png)!important;
+        // background: rgba(187, 187, 187, 0.4) !important;
+    }
+
+    .button{
+        background-image: linear-gradient(to right top, #d60000, #cf020b, #c70513, #bf0a19, #b70f1e);
+        border-radius: 20px;
+    }
+    
+    .avatar{
+        width: 145px !important; 
+        height: 145px !important; 
+        margin-left:80px; 
+        border-radius: 80px 80px 80px 80px;
+        
+    }
+
+
+
+    .toolbar-background-md {
+        border-color: #010514;
+        background-color: black;
+        background-repeat: no-repeat !important;
+        background-size: 800px 200px !important;
+    }
+
+    .toolbar-title-md {
+        padding: 0 10px !important;
+        font-size: 1.5rem !important;
+        font-weight: 100 !important;
+        color: #9eff01;
+    }
+
+
+input[type="text"] {
+    width: 100%;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+  }
+
+  
+input[type="password"] {
+    width: 100%;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: 0.3s;
+  }
+  
+  input[type="text"]:focus {
+    border-color: dodgerBlue;
+    box-shadow: 0 0 8px 0 dodgerBlue;
+  }
+
+  input[type="password"]:focus {
+    border-color: dodgerBlue;
+    box-shadow: 0 0 8px 0 dodgerBlue;
+  }
+  
+  .inputWithIcon input[type="text"] {
+    padding-left: 40px;
+    color: #282829;
+  }
+
+  .inputWithIcon input[type="password"] {
+    padding-left: 40px;
+    color: #282829;
+  }
+  
+  
+  .inputWithIcon {
+    position: relative;
+  }
+  
+  .inputWithIcon i {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    padding: 9px 10px 10px;
+    color: #aaa;
+    transition: 0.3s;
+  }
+  
+  .inputWithIcon input[type="text"]:focus + i {
+    color: dodgerBlue;
+  }
+
+  .inputWithIcon input[type="password"]:focus + i {
+    color: dodgerBlue;
+  }
+  
+  .inputWithIcon.inputIconBg i {
+    background-color: #aaa;
+    color: #fff;
+    padding-right: 26px;
+    padding-bottom: 13px;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .inputWithIcon.inputIconBg input[type="text"]:focus + i {
+    color: #fff;
+
+    background-color: dodgerBlue;
+  }
+
+  .inputWithIcon.inputIconBg input[type="password"]:focus + i {
+    color: #fff;
+
+    background-color: dodgerBlue;
+  }
+  
+  
+
+  .input-wrapper {
+  
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+}
